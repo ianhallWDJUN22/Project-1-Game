@@ -1,0 +1,76 @@
+html {
+  font-family: "Digi";
+  src: url("fonts/ds-digib.ttf");
+  background-color: rgb(31, 38, 31);
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .display-panel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100px;
+    border: 5px solid;
+    border-color: rgb(62, 66, 60);
+    background-color: rgb(53, 63, 73);
+  }
+  p {color: rgb(106, 179, 79);
+    font-size: 20px;
+  }
+  .prompt-box {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 70px;
+    background-color:rgb(4, 28, 4);
+  }
+
+  #input {
+    color: rgb(106, 179, 79);
+    background-color: rgb(4, 28, 4);
+    font: "Digi";
+    font-size: 40px;
+    width: 150px;
+    height: 60px;
+    text-decoration-color: rgb(106, 179, 79);
+    text-align: center;
+  }
+  #clock {
+    width: 145px;
+    border: 2px solid;
+    border-color: black;
+    text-align: center;
+    font: "Digi";
+    font-size: 40px;
+    color: rgb(106, 179, 79);
+    background-color: rgb(4, 28, 4);
+    padding:10px;
+  }
+  .wire-panel {
+  display: flex;
+  height: 600px;
+  justify-content: center;
+  background-color: rgb(53, 63, 73);
+  border: 5px solid;
+  border-color: rgb(62, 66, 60); 
+  flex: wrap;
+  }
+
+  .wire-box {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    border: 2px solid;
+    border-color: black;
+  }
+  .box-row-1 {
+    margin-top: 5px;
+  }
+  .box-row-2 {
+    margin-top: 5px;
+  }
+  
