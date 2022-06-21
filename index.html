@@ -11,14 +11,14 @@
   </head>
   
   <body>
-    <h1></h1>
+    <!-- <h1><div class="blink_me">BLINK ME</div></h1> -->
     <div class="display-panel">
       <div class="input-box">
         <input type="text" id="input" placeholder="">
       </div>
       <div class="prompt-box">
-        <span class="start-info">BOMB ARMED</span>
-        <span id='reference' class="start-info">--(reference this box for instructions)--</span>
+        <span>   </span>
+        <span class="start-info">-WARNING-     -WARNING- <br> BOMB ARMED</span>
         <span class="info game-info hidden"></span>
       </div>
       <div id="clock-Image">
@@ -28,10 +28,6 @@
       </div>
     </div>
     
-    <div class="backgroundInfo">
-      <p class="warningLabel"></p>
-      <p id="warningInfo" class="warningLabel">*WARNING*<br>If the red light is on this bomb is armed. Only the disarm code will prevent detonation. Each step of the disarm code will flash in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will reset the disarm process.  Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin defusal process. </p>
-    </div>
     
     
     <section class="wire-panel unclickable hidden">
@@ -48,9 +44,13 @@
     
     <div class="startDiv ">
       <button id="btnStart" class="btn-start">PRESS TO RELEASE PANEL</button>
+      <div class="backgroundInfo">
+        <p class="warningLabel">*WARNING*</p>
+          <p id="warningInfo"> If the red light is on this bomb is armed. Only the disarm code will prevent detonation. As a reference, the system will flash each step of the disarm code in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will reset the disarm process.  Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin disarm process. </p>
+      </div>
     </div>
     
-
+    
     <audio src="" data-sound="red"></audio>
     <audio src="" data-sound="blue"></audio>
     <audio src="" data-sound="green"></audio>

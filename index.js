@@ -6,7 +6,9 @@ const wirePanel = document.querySelector('.wire-panel');
 const info = document.querySelector('.game-info');
 const startInfo = document.querySelector('.start-info');
 const startDiv = document.querySelector('.startDiv');
-// const warningLabel = document.querySelector('.backgroundInfo');
+const warningLabel = document.querySelector('.backgroundInfo');
+
+
 function activateBox(color) {
   const box = document.querySelector(`[data-box='${color}']`);
   const sound = document.querySelector(`[data-sound='${color}']`);
@@ -44,11 +46,8 @@ function startGame() {
   wirePanel.classList.remove('hidden');
   startInfo.classList.add('hidden');
   info.classList.remove('hidden');
-  // startDiv.classList.add('hidden')
-  
-  // warningLabel.classList.add('hidden');
-  info.textContent = 'WAIT FOR THE PROMPT';
-  nextRound();
+  warningLabel.classList.add('hidden');
+  info.innerHTML = '...PLAYING CODE REFERENCE...';
   let minute = 4;
   let sec = 59;
   setInterval(function() {
@@ -65,7 +64,19 @@ function startGame() {
       sec = `0${sec}`;
     }
   }, 1000);
+  nextRound();
 }
+
+// .blink_me {
+//   animation: blinker 1s linear infinite;
+// }
+
+// @keyframes blinker {
+//   50% {
+//     opacity: 0;
+//   }
+// }
+
 
 
 startBtn.addEventListener("click", startGame)
