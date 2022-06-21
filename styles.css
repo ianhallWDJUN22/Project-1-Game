@@ -18,13 +18,25 @@ html {
     border-color: rgb(62, 66, 60);
     background-color: rgb(53, 63, 73);
   }
-  p {color: rgb(106, 179, 79);
+  .start-info {
+    margin-top: 10px;
+    color: rgb(106, 179, 79);
+    font-size: 20px;
+  }
+    #reference {
+    font-size: 15px;
+  }
+  
+  .info {
+    margin-top: 10px;
+    color: rgb(106, 179, 79);
     font-size: 20px;
   }
   .prompt-box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    width: 500px;
+    width: 400px;
     height: 70px;
     background-color:rgb(4, 28, 4);
   }
@@ -50,27 +62,141 @@ html {
     background-color: rgb(4, 28, 4);
     padding:10px;
   }
-  .wire-panel {
-  display: flex;
-  height: 600px;
-  justify-content: center;
-  background-color: rgb(53, 63, 73);
-  border: 5px solid;
-  border-color: rgb(62, 66, 60); 
-  flex: wrap;
+  .startDiv {
+    display: flex;
+    justify-content: center;
+    height: 426px;
+    border: 2px;
+    background-color: rgb(35, 43, 35);
+    border: 2px solid;
+    border-bottom-color:rgb(49, 48, 48);
+    border-left-color:rgb(30, 29, 29);
+    border-right-color:rgb(27, 27, 27);
+    border-top-color:(41, 40, 40);
+    margin-top: 2px;
+    margin-left: 122px;
+    margin-right: 122px;
+    
+    
   }
 
-  .wire-box {
-    width: 150px;
-    height: 150px;
-    background-color: lightgray;
-    border: 2px solid;
-    border-color: black;
+  .wire-panel {
+  display: flex;
+  height: 400px;
+  background-color: rgb(50, 54, 51);
+  border: 15px solid;
+  border-top-color:rgb(40, 39, 39);
+  border-left-color: rgb(44, 43, 43);
+  border-right-color: rgb(44, 43, 43);
+  border-bottom-color: rgb(62, 66, 60);
+  margin-left: 120px;
+  margin-right: 120px;
+  flex-direction: row;
+  justify-content: center;
   }
-  .box-row-1 {
-    margin-top: 5px;
+  .box {
+    margin-top:40px;
+    width: 100px;
+    height: 100px;
   }
-  .box-row-2 {
-    margin-top: 5px;
+    .btn-start {
+    width: 600px;
+    height: 50px;
+    font-size: 40px;
+    color:rgb(98, 52, 51);
+    background-color: rgb(93, 102, 98);
+    margin-top: 40px;
+  }
+  .hidden {
+    display: none;
+  }
+  .warningLabel {
+    color: rgb(151, 151, 151);
+    text-align: center;
+  }
+  #warningInfo {
+    text-justify: center;
+  }
+  .row-1 {
+    margin-right: 20px;
+  }
+  .row-2 {
+    margin-left: 20px;
+  }
+  .box-red {
+    background-color: rgb(164, 60, 29);
+    box-shadow: 0 0 0 1px #f25022 inset, 0 0 0 2px
+     rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 
+     #c93a12, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+     0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+    margin-top: 60px;
   }
   
+  .box-red:hover,
+  .box-red:focus {
+    background-color: rgb(186, 66, 29);
+    box-shadow: 0 0 0 1px #ff4400 inset, 0 0 0 2px 
+    rgba(225, 225, 225, 0.15) inset, 0 10px 0 0
+    #e62b00, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px
+    1px rgba(0, 0, 0, 0.6);
+    transition: 0.15s;
+  }
+  
+  .box-blue {
+    background-color: rgb(28, 117, 173);
+    box-shadow: 0 0 0 1px #22bff2 inset, 0 0 0 2px
+    rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 
+    #10a6bd, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+    0 8px 8px 1px rgba(0, 0, 0, 0.5);
+   transition: 0.15s;
+  }
+
+  .box-blue:hover,
+  .box-blue:focus {
+    background-color: rgb(23, 141, 200);
+    box-shadow: 0 0 0 1px #00b7ff inset, 0 0 0 2px 
+    rgba(225, 225, 225, 0.15) inset, 0 10px 0 0
+    #00a9e6, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px
+    1px rgba(0, 0, 0, 0.6);
+    transition: 0.15s;
+  }
+  .box-green {
+    margin-top: 60px;
+    background-color: rgb(29, 134, 59);
+    box-shadow: 0 0 0 1px #1dcc37 inset, 0 0 0 2px
+     rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 
+     #0fb647, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+     0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+    
+  }
+  .box-green:hover,
+  .box-green:focus {
+    background-color:  rgb(72, 142, 31);
+    box-shadow: 0 0 0 1px #60cc1d inset, 0 0 0 2px 
+    rgba(225, 225, 225, 0.15) inset, 0 10px 0 0
+    #57b60f, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px
+    1px rgba(0, 0, 0, 0.6);
+    transition: 0.15s;
+  }
+  .box-yellow {
+    background-color: rgb(180, 128, 24);
+    box-shadow: 0 0 0 1px #f2ba22 inset, 0 0 0 2px
+     rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 
+     #c9ae12, 0 8px 0 1px rgba(0, 0, 0, 0.4),
+     0 8px 8px 1px rgba(0, 0, 0, 0.5);
+    transition: 0.15s;
+  }
+  .box-yellow:hover,
+  .box-yellow:focus {
+    background-color:  rgb(213, 155, 39);
+    box-shadow: 0 0 0 1px #f2d322 inset, 0 0 0 2px 
+    rgba(225, 225, 225, 0.15) inset, 0 10px 0 0
+    #c9bd12, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px
+    1px rgba(0, 0, 0, 0.6);
+    transition: 0.15s;
+  }
+  .unclickable {
+    pointer-events: unclickable;
+  }
