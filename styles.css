@@ -113,6 +113,9 @@ html {
   .hidden {
     display: none;
   }
+  .invisible {
+    visibility: hidden;
+  }
   .backgroundInfo {
     color: rgb(151, 151, 151);
   }
@@ -150,6 +153,15 @@ html {
     1px rgba(0, 0, 0, 0.6);
     transition: 0.15s;
   }
+
+  .box-red:active,
+  .box-red.activated {
+    background-color: #ff451a;
+    box-shadow: 0 0 0 1px #FF3000 inset, 0 0 0 2px
+    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px 
+    rgba(0, 0, 0, 0.4);
+    transform: translateY(10px);
+  }
   
   .box-blue {
     background-color: rgb(28, 117, 173);
@@ -169,6 +181,14 @@ html {
     1px rgba(0, 0, 0, 0.6);
     transition: 0.15s;
   }
+  .box-blue:active,
+  .box-blue.activated {
+    background-color: #139ddd;
+    box-shadow: 0 0 0 1px #2bbcff inset, 0 0 0 2px 
+    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    transform: translateY(10px);
+  }
+
   .box-green {
     margin-top: 60px;
     background-color: rgb(29, 134, 59);
@@ -188,6 +208,14 @@ html {
     1px rgba(0, 0, 0, 0.6);
     transition: 0.15s;
   }
+    .box-green:active,
+    .box-green.activated {
+      box-shadow: 0 0 0 1px #a0ea00 inset, 0 0 0 2px
+      rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+      background-color: #8cc218;
+      transform: translateY(10px);
+    }
+
   .box-yellow {
     background-color: rgb(180, 128, 24);
     box-shadow: 0 0 0 1px #f2ba22 inset, 0 0 0 2px
@@ -205,6 +233,13 @@ html {
     1px rgba(0, 0, 0, 0.6);
     transition: 0.15s;
   }
+  .box-yellow:active,
+  .box-yellow.activated {
+    background-color: #ffb900;
+    box-shadow: 0 0 0 1px #ffca3d inset, 0 0 0 2px
+    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    transform: translateY(10px);
+  }
   .unclickable {
-    pointer-events: unclickable;
+    pointer-events: none;
   }

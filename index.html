@@ -11,7 +11,7 @@
   </head>
   
   <body>
-    <!-- <h1><div class="blink_me">BLINK ME</div></h1> -->
+
     <div class="display-panel">
       <div class="input-box">
         <input type="text" id="input" placeholder="">
@@ -32,12 +32,12 @@
     
     <section class="wire-panel unclickable hidden">
       <div class="row-1">
-        <div class="box box-red" data-boxes="red"></div>
-        <div class="box box-blue" data-boxes='blue'></div>
+        <div class="box box-red" data-box="red"></div>
+        <div class="box box-blue" data-box='blue'></div>
       </div>
       <div class="row-2">
-        <div class="box box-green" data-boxes="green"></div>
-        <div class="box box-yellow" data-boxes="yellow"></div>
+        <div class="box box-green" data-box="green"></div>
+        <div class="box box-yellow" data-box="yellow"></div>
       </div>  
       
     </section>
@@ -46,15 +46,15 @@
       <button id="btnStart" class="btn-start">PRESS TO RELEASE PANEL</button>
       <div class="backgroundInfo">
         <p class="warningLabel">*WARNING*</p>
-          <p id="warningInfo"> If the red light is on this bomb is armed. Only the disarm code will prevent detonation. As a reference, the system will flash each step of the disarm code in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will reset the disarm process.  Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin disarm process. </p>
+          <p id="warningInfo"> If this bomb is armed only the disarm code will prevent detonation. As a reference, the system will flash each step of the disarm code in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will reset the disarm process.  Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin disarm process. </p>
       </div>
     </div>
     
     
-    <audio src="" data-sound="red"></audio>
+    <!-- <audio src="" data-sound="red"></audio>
     <audio src="" data-sound="blue"></audio>
     <audio src="" data-sound="green"></audio>
-    <audio src="" data-sound="yellow"></audio>
+    <audio src="" data-sound="yellow"></audio> -->
     
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="./index.js"></script>
