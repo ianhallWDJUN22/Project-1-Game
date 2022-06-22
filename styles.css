@@ -28,6 +28,11 @@ html {
     font-size: 15px;
   }
   
+  .error-info{
+    margin-top: 25px;
+    color: rgb(186, 37, 29);
+    font-size: 20px;
+  }
   .info {
     margin-top: 10px;
     color: rgb(106, 179, 79);
@@ -102,7 +107,7 @@ html {
     width: 100px;
     height: 100px;
   }
-    .btn-start {
+  .btn-start {
     width: 600px;
     height: 50px;
     font-size: 40px;
@@ -127,6 +132,50 @@ html {
     text-align: justify;
     margin-left: 45px;
     margin-right: 45px;
+  }
+  .resetBtn {
+    height: 50px;
+    width: 75px;
+    color: rgb(98, 52, 51);
+    background-color: rgb(93, 102, 98);
+    margin-top: 65px;
+    font-weight: bold;
+    margin-right: 60px;
+    
+  }
+  .resets {
+    font-weight: bold;
+    color: rgb(141, 140, 140);
+  }
+  .leftOfGame {
+    margin-right: 70px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  
+  .counterBox {
+    display: flex;
+    height: 60px;
+    width: 60px;
+    color: rgb(106, 179, 79);
+    font-size: 20px;
+    background-color:rgb(4, 28, 4);
+    font-size: 40px;
+    margin-top: 72px;
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid;
+    border-bottom-color: rgb(113, 112, 112);
+    border-left-color: rgb(49, 49, 49);
+    border-right-color: rgb(49, 49, 49);
+    border-top-color: rgb(49, 49, 49);
+    
+  }
+  .mistakeCounter {
+    text-align: center;
+    margin-top: 8px;
   }
   .row-1 {
     margin-right: 20px;
@@ -242,4 +291,7 @@ html {
   }
   .unclickable {
     pointer-events: none;
+  }
+  .boom {
+    ff
   }

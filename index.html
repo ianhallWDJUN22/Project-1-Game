@@ -11,7 +11,8 @@
   </head>
   
   <body>
-
+    <div class ='boom'></div>
+   <section class="full-wipe">
     <div class="display-panel">
       <div class="input-box">
         <input type="text" id="input" placeholder="">
@@ -20,6 +21,7 @@
         <span>   </span>
         <span class="start-info">-WARNING-     -WARNING- <br> BOMB ARMED</span>
         <span class="info game-info hidden"></span>
+        <span class="error-info hidden"></span>
       </div>
       <div id="clock-Image">
         <div id="clock">
@@ -31,6 +33,13 @@
     
     
     <section class="wire-panel unclickable hidden">
+      <div class="leftOfGame">
+        <div class="counterBox">
+        <div class="mistakeCounter">2</div>
+        </div>
+        <p class="resets">RESETS</p>
+        <button  id='reset-btn'class="resetBtn unclickable">RESET DISARM</button>
+      </div>
       <div class="row-1">
         <div class="box box-red" data-box="red"></div>
         <div class="box box-blue" data-box='blue'></div>
@@ -46,7 +55,7 @@
       <button id="btnStart" class="btn-start">PRESS TO RELEASE PANEL</button>
       <div class="backgroundInfo">
         <p class="warningLabel">*WARNING*</p>
-          <p id="warningInfo"> If this bomb is armed only the disarm code will prevent detonation. As a reference, the system will flash each step of the disarm code in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will reset the disarm process.  Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin disarm process. </p>
+          <p id="warningInfo"> If this bomb is armed only the disarm code will prevent detonation. As a reference, the system will flash each step of the disarm code in the correct order.  After each step you must correctly repeat the code exactly as it was displayed. Incorrect inputs will halt the disarm process and you will need to manually reset the disarm sequence.  More than (2) incorrect inputs will result in detonation. Failure to input all steps of the code before the timer reaches 00:00 will result in detonation. Remove panel to begin disarm process. </p>
       </div>
     </div>
     
@@ -55,7 +64,7 @@
     <audio src="" data-sound="blue"></audio>
     <audio src="" data-sound="green"></audio>
     <audio src="" data-sound="yellow"></audio> -->
-    
+   </section>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="./index.js"></script>
   </body>
