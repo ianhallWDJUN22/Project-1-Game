@@ -4,8 +4,11 @@ let step = 0;
 let startBtn = document.getElementById('btnStart');
 let resetBtn = document.querySelector('#reset-btn');
 let resets = 2
-let wipe = document.querySelector('.full-wipe');
+let boom1 = document.querySelector('.boom1');
+let boom2 = document.querySelector('.boom2');
+let boom3 = document.querySelector('.boom3');
 let errorInfo = document.querySelector('.error-info');
+let wipe = document.querySelector('.full-game')
 const row1 = document.querySelector('.row-1');
 const row2 = document.querySelector('.row-2');
 const resetCounter = document.querySelector('.mistakeCounter');
@@ -15,12 +18,16 @@ const startInfo = document.querySelector('.start-info');
 const startDiv = document.querySelector('.startDiv');
 const warningLabel = document.querySelector('.backgroundInfo');
 
+
 function boom() {
-  wipe.classList.add('hidden')
-  wipe.classList.add('boom')
+  wipe.classList.add('hidden');
+  boom1.classList.remove('hidden');
+  boom1.classList.add('hidden');
+  boom2.classList.remove('hidden');
+  boom2.classList.add('hidden');
+  boom3.classList.remove('hidden');
+  boom3.classList.add('hidden');
 };
-
-
 
 function activateBox(color) {
   const box = document.querySelector(`[data-box='${color}']`);

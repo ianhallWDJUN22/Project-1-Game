@@ -234,7 +234,8 @@ html {
   .box-blue.activated {
     background-color: #139ddd;
     box-shadow: 0 0 0 1px #2bbcff inset, 0 0 0 2px 
-    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px 
+    rgba(0, 0, 0, 0.4);
     transform: translateY(10px);
   }
 
@@ -260,7 +261,8 @@ html {
     .box-green:active,
     .box-green.activated {
       box-shadow: 0 0 0 1px #a0ea00 inset, 0 0 0 2px
-      rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+      rgba(255, 255, 255, 0.15) inset, 0 0 0 1px 
+      rgba(0, 0, 0, 0.4);
       background-color: #8cc218;
       transform: translateY(10px);
     }
@@ -286,12 +288,25 @@ html {
   .box-yellow.activated {
     background-color: #ffb900;
     box-shadow: 0 0 0 1px #ffca3d inset, 0 0 0 2px
-    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+    rgba(255, 255, 255, 0.15) inset, 0 0 0 1px 
+    rgba(0, 0, 0, 0.4);
     transform: translateY(10px);
   }
   .unclickable {
     pointer-events: none;
   }
-  .boom {
-    ff
+  .boom1 {
+    background-color: orange;
+    height: 600px;
+    width: 600px;
+  }
+  .boom2 {
+    background-color: yellow;
+    height: 700px;
+    width: 700px;
+  }
+  .boom3 {
+    background-color: white;
+    height: 800px;
+    width: 1000px;
   }
