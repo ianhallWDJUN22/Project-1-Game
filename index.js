@@ -25,6 +25,7 @@ const startDiv = document.querySelector('.startDiv');
 const warningLabel = document.querySelector('.backgroundInfo');
 
 function boom() {
+  prompt = [];
   ambiance.volume = 0;
   let explosion = new Audio('music/191693__deleted-user-3544904__explosion-3.wav');
   explosion.volume = 0.45;
@@ -80,7 +81,7 @@ function activateBox(color) {
   box.classList.add('activated');
   if (color == 'red') {
     let redPing = new Audio('music/320181__dland__hint.wav');
-    redPing.volume = 0.25
+    redPing.volume = 0.15
     redPing.play();
   }
   if (color == 'yellow') {
@@ -165,7 +166,7 @@ function playerClick(box) {
   }
   let redPing = new Audio('music/320181__dland__hint.wav');
   if (box == 'red') {
-    redPing.volume = 0.25
+    redPing.volume = 0.15
     redPing.play();
   }
   let yellowPing = new Audio('music/520579__divoljud__clickglass.wav');
@@ -204,7 +205,7 @@ function playerClick(box) {
 }
 
 function startTimer(){
-  let minute = 3;
+  let minute = 4;
   let sec = 59;
   setInterval(function() {
     document.getElementById("timer").innerHTML = '0' + `${minute}` + ":" + `${sec}`;
@@ -226,7 +227,7 @@ function startTimer(){
 
 class Score {
   constructor() {
-    this.currentScore = 240;
+    this.currentScore = 280;
     this.intervalId = null;
   }
   startScore(printTimeCallback) {
