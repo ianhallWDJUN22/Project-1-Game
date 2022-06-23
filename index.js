@@ -71,7 +71,7 @@ setTimeout(() => {
   winMusic.loop = true;
   winMusic.volume = 0.3
   winMusic.play();
-  winNote.innerHTML = `You disarmed the bomb, well done! Based on the amount of time you had remaining you've earned yourself a final score of ${finalScore} points! To see if you can beat your current time refresh this page.`;
+  winNote.innerHTML = `You disarmed the bomb, well done! Based on the amount of time you had remaining you earned a final score of ${finalScore} points! To see if you can beat your current time refresh this page.`;
   playerScore.innerHTML = `SCORE : ${finalScore}`
 }, 3000);
 
@@ -145,8 +145,7 @@ function nextRound() {
   wirePanel.classList.add('unclickable');
   info.textContent = '...PLAYING REFERENCE CODE...'
   // This would be the spot to add a leve/step/round tracker 
-  // notification should I add one.  Just remember to create 
-  // a variable for it then (variable.textContent =)
+  // notification should I add one.
 
   const nextPrompt = [...prompt];
   nextPrompt.push(nextStep());
@@ -190,7 +189,7 @@ function playerClick(box) {
     if (step > highestStreak){
       highestStreak = step
     }
-    if (step == 14){
+    if (step == 15){
       youWin();
       return;
     } 
