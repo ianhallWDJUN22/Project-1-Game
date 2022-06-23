@@ -42,6 +42,9 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    border: 1px solid;
+    border-color:rgb(49, 48, 48);
+    border-bottom-color: gray;
     width: 400px;
     height: 70px;
     background-color:rgb(4, 28, 4);
@@ -59,8 +62,9 @@ html {
   }
   #clock {
     width: 145px;
-    border: 2px solid;
-    border-color: black;
+    border: 1px solid;
+    border-color:rgb(49, 48, 48);
+    border-bottom-color: gray;
     text-align: center;
     font: "Digi";
     font-size: 40px;
@@ -304,9 +308,7 @@ html {
     width: 700px;
   }
   .boom3 {
-    /* background-color: rgb(39, 38, 38);
-    height: 800px; */
-    /* width: 1000px; */
+    
     color:rgb(171, 144, 136);
     font-size: 16px;
     display: flex;
@@ -314,6 +316,55 @@ html {
     text-align: center;
     align-items: center;
     margin-top: 35%;
+  }
+  .bombDisarmed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    background-color: rgb(53, 63, 73);
+    border: 5px solid;
+    border-color:gray;
+    border-bottom-color:rgb(27, 27, 27);
+    margin: 30px;
+  }
+  .winHeader {
+    font-size: 60px;
+    color: rgb(106, 179, 79);
+    background-color: rgb(4, 28, 4);
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    margin: 30px 80px 30px 80px;
+    border: 1px solid;
+    border-color:rgb(49, 48, 48);
+    border-bottom-color: gray;
+  }
+  .yourScore {
+    font-size: 60px;
+    color: rgb(106, 179, 79);
+    background-color: rgb(4, 28, 4);
+    margin-left: 180px;
+    margin-right: 180px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-align: center;
+    border: 1px solid;
+    border-color:rgb(49, 48, 48);
+    border-bottom-color: gray;
+  }
+  .winNotes {
+    color: rgb(106, 179, 79);
+    background-color: rgb(4, 28, 4);
+    margin-left: 80px;
+    margin-right: 80px;
+    font-size:20px;
+    text-align: center;
+    margin-bottom: 30px;
+    border: 1px solid;
+    border-color:rgb(49, 48, 48);
+    border-bottom-color: gray;
+    padding: 20px;
   }
   .hidden {
     display: none;

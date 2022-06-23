@@ -12,6 +12,8 @@ let errorInfo = document.querySelector('.error-info');
 let wipe = document.querySelector('.full-game');
 let allBoxes = document.querySelector('.box');
 let winNote = document.querySelector('.winNotes');
+let finalScore = 0;
+let playerScore = document.querySelector('.yourScore')
 const win = document.querySelector('.bombDisarmed');
 const row1 = document.querySelector('.row-1');
 const row2 = document.querySelector('.row-2');
@@ -22,10 +24,6 @@ const startInfo = document.querySelector('.start-info');
 const startDiv = document.querySelector('.startDiv');
 const warningLabel = document.querySelector('.backgroundInfo');
 
-// function pauseAudio() {
-//   ambiance.loop = false;
-//   ambiance.muted = true;
-// }
 function boom() {
   ambiance.volume = 0;
   let explosion = new Audio('music/191693__deleted-user-3544904__explosion-3.wav');
@@ -57,6 +55,7 @@ function youWin() {
   ambiance.volume = 0;
   allBoxes.classList.remove('activated');
   prompt = [];
+  score.getScore();
   let winPing = new Audio('music/523763__matrixxx__select-granted-06.wav');
   winPing.volume = 0.3;
   winPing.play();
@@ -71,8 +70,9 @@ setTimeout(() => {
   winMusic.loop = true;
   winMusic.volume = 0.3
   winMusic.play();
-  winNote.innerHTML = `Well done! You disarmed the bomb and earned yourself a final score of ${finalScore}!`<br>`Scores are based on the amount of time you had remaining on the timer.  To see if you can beat your current time refresh this page.`;
-}, 4000);
+  winNote.innerHTML = `You disarmed the bomb, well done! Based on the amount of time you had remaining you've earned yourself a final score of ${finalScore} points! To see if you can beat your current time refresh this page.`;
+  playerScore.innerHTML = `SCORE : ${finalScore}`
+}, 3000);
 
 }
 function activateBox(color) {
@@ -189,7 +189,7 @@ function playerClick(box) {
     if (step > highestStreak){
       highestStreak = step
     }
-    if (step == 1){
+    if (step == 16){
       youWin();
       return;
     } 
@@ -216,11 +216,37 @@ function startTimer(){
     if (sec <= 9 && sec > 0) {
       sec = `0${sec}`;
     }
-    if (minute == 0 && sec == 0) {
+    if (minute == 0 && sec == 0 && finalScore == 0) {
       boom();
     }
   }, 1000);
 }
+
+
+
+class Score {
+  constructor() {
+    this.currentScore = 240;
+    this.intervalId = null;
+  }
+  startScore(printTimeCallback) {
+    this.intervalId = setInterval(() => {this.currentScore--
+      if (printTimeCallback) {
+        printTimeCallback()
+      }
+    }, 1000);
+  }
+  pauseScore() {
+    clearInterval(this.intervalId);
+  }
+  getScore() {
+    finalScore += this.currentScore;
+    return finalScore;
+  }
+}
+const score = new Score();
+
+
 
 function restartPrompts() {
   resetPing = new Audio('music/394155__vacuumfan7072__uiclick1.wav');
@@ -246,6 +272,7 @@ function startGame() {
   startTimer();
   nextRound();
   playMusic();
+  score.startScore();
 }
 
 
@@ -265,8 +292,3 @@ function playMusic() {
   })
 
 resetBtn.addEventListener('click', restartPrompts)
-
-
-
-
-
