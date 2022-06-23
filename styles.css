@@ -115,9 +115,7 @@ html {
     background-color: rgb(93, 102, 98);
     margin-top: 40px;
   }
-  .hidden {
-    display: none;
-  }
+  
   .invisible {
     visibility: hidden;
   }
@@ -297,8 +295,8 @@ html {
   }
   .boom1 {
     background-color: orange;
-    height: 600px;
-    width: 600px;
+    height: 800px;
+    width: 80000px;
   }
   .boom2 {
     background-color: yellow;
@@ -306,7 +304,17 @@ html {
     width: 700px;
   }
   .boom3 {
-    background-color: white;
-    height: 800px;
-    width: 1000px;
+    /* background-color: rgb(39, 38, 38);
+    height: 800px; */
+    /* width: 1000px; */
+    color:rgb(171, 144, 136);
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 35%;
+  }
+  .hidden {
+    display: none;
   }

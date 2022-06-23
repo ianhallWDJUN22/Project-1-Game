@@ -1,14 +1,17 @@
 let prompt = [];
 let playerPrompt = [];
 let step = 0;
+let resets = 2
+let highestStreak = 0;
 let startBtn = document.getElementById('btnStart');
 let resetBtn = document.querySelector('#reset-btn');
-let resets = 2
 let boom1 = document.querySelector('.boom1');
 let boom2 = document.querySelector('.boom2');
 let boom3 = document.querySelector('.boom3');
 let errorInfo = document.querySelector('.error-info');
-let wipe = document.querySelector('.full-game')
+let wipe = document.querySelector('.full-game');
+let allBoxes = document.querySelector('.box')
+const win = document.querySelector('.bombDisarmed');
 const row1 = document.querySelector('.row-1');
 const row2 = document.querySelector('.row-2');
 const resetCounter = document.querySelector('.mistakeCounter');
@@ -18,23 +21,70 @@ const startInfo = document.querySelector('.start-info');
 const startDiv = document.querySelector('.startDiv');
 const warningLabel = document.querySelector('.backgroundInfo');
 
-
+// function pauseAudio() {
+//   ambiance.loop = false;
+//   ambiance.muted = true;
+// }
 function boom() {
+  // pauseAudio();
+  let explosion = new Audio('music/191693__deleted-user-3544904__explosion-3.wav');
+  explosion.volume = 0.10;
+  console.log(explosion.volume)
+  explosion.play();
+
   wipe.classList.add('hidden');
   boom1.classList.remove('hidden');
+  setTimeout(() => {
   boom1.classList.add('hidden');
+  }, 20);
   boom2.classList.remove('hidden');
   boom2.classList.add('hidden');
+  setTimeout(() => {
   boom3.classList.remove('hidden');
-  boom3.classList.add('hidden');
+  }, 20);
+  
+  setTimeout(() => {
+  boom3.textContent = 'Whoops'
+  }, 3000);
+
+  setTimeout(() => {
+  boom3.textContent = `Your highest sequence reached was... ${highestStreak} ... refresh the page to try again.`
+  }, 10000);
 };
 
+function youWin() {
+  allBoxes.classList.remove('activated');
+  prompt = [];
+  let disarm = new Audio('music/169994__peepholecircus__power-down.mp3')
+disarm.play();
+
+info.textContent = '-- BOMB DISARMED --'
+setTimeout(() => {
+  wipe.classList.add('hidden');
+  win.classList.remove('hidden');
+}, 5000);
+
+}
 function activateBox(color) {
   const box = document.querySelector(`[data-box='${color}']`);
-  // const sound = document.querySelector(`[data-sound='${color}']`);
   box.classList.add('activated');
-  // sound.play();
-  
+  if (color == 'red') {
+    let redPing = new Audio('music/320181__dland__hint.wav');
+    redPing.volume = 0.2
+    redPing.play();
+  }
+  if (color == 'yellow') {
+    let yellowPing = new Audio('music/520579__divoljud__clickglass.wav');
+    yellowPing.play();
+  }
+  if (color == 'green'){
+    let greenPing = new Audio('music/540902__solernix__simple-beep-sound.mp3');
+    greenPing.play();
+  }
+  if (color == 'blue'){
+    let bluePing = new Audio('music/253168__suntemple__sfx-ui-button-click.wav');
+    bluePing.play();
+  }
   setTimeout(() =>{
     box.classList.remove('activated');
   }, 300);
@@ -61,7 +111,11 @@ function resetGame() {
   resets -= 1;
   if (resets == -1) {
     boom();
-  }
+  return;
+}
+  let error = new Audio('music/343015__zenithinfinitivestudios__ui-button1.wav');
+  error.volume = 0.05
+  error.play();
 }
 
 function playerTurn(step) {
@@ -76,8 +130,6 @@ function nextStep() {
 }
 
 function nextRound() {
-  step += 1;
-  
   wirePanel.classList.add('unclickable');
   info.textContent = '...PLAYING REFERENCE CODE...'
   // This would be the spot to add a leve/step/round tracker 
@@ -94,47 +146,70 @@ function nextRound() {
   }, step * 600 + 1000);
 }
 
-function playerClick(box) {
+function playerClick(box) { 
   const index = playerPrompt.push(box) - 1;
-  // const sound = document.querySelector(`[data-sound='${box}']`);
-  // sound.play();
   if (playerPrompt[index] !== prompt[index]){
-  resetGame();
+    resetGame();
     return;
+  }
+  let redPing = new Audio('music/320181__dland__hint.wav');
+  if (box == 'red') {
+    redPing.volume = 0.2
+    redPing.play();
+  }
+  let yellowPing = new Audio('music/520579__divoljud__clickglass.wav');
+  if (box == 'yellow') {
+    yellowPing.play();
+  }
+  let greenPing = new Audio('music/540902__solernix__simple-beep-sound.mp3');
+  if (box == 'green'){
+    greenPing.play();
+  }
+  let bluePing = new Audio('music/253168__suntemple__sfx-ui-button-click.wav');
+  if (box == 'blue'){
+    bluePing.play();
   }
   if (playerPrompt.length === prompt.length) {
     playerPrompt = [];
+    step += 1;
+    
+    
+    if (step == 3){
+      youWin();
+      return;
+    } 
+    
     info.textContent = 'VALID CODE.. CONTINUE';
     setTimeout(() => {
+      
       nextRound();
     }, 1000);
     return;
   }
-  //This would be the spot to add a tracker of how many button 
-  //presses are left to complete the current round.  
-  //this could be tracked with playerPrompt.length - prompt.length 
-  //then displayed somewhere on the screen using ${  }
 }
+
 function startTimer(){
-let minute = 3;
-let sec = 59;
-setInterval(function() {
-  document.getElementById("timer").innerHTML = '0' + `${minute}` + ":" + `${sec}`;
-  sec--;
-  if (sec == 0 && minute > 0) {
-    minute --;
-    sec = 59;
-  }
-  if (sec <= 9 && sec > 0) {
-    sec = `0${sec}`;
-  }
-  if (minute == 0 && sec == 0) {
-    boom();
-  }
-}, 1000);
+  let minute = 3;
+  let sec = 59;
+  setInterval(function() {
+    document.getElementById("timer").innerHTML = '0' + `${minute}` + ":" + `${sec}`;
+    sec--;
+    if (sec == 0 && minute > 0) {
+      minute --;
+      sec = 59;
+    }
+    if (sec <= 9 && sec > 0) {
+      sec = `0${sec}`;
+    }
+    if (minute == 0 && sec == 0) {
+      boom();
+    }
+  }, 1000);
 }
 
 function restartPrompts() {
+  let resetPing = new Audio('music/523763__matrixxx__select-granted-06.wav');
+  resetPing.play();
   resetBtn.classList.add('unclickable')
   row1.classList.remove('unclickable')
   row2.classList.remove('unclickable')
@@ -151,18 +226,31 @@ function startGame() {
   info.classList.remove('hidden');
   warningLabel.classList.add('hidden');
   info.textContent = '...PLAYING REFERENCE CODE...';
+  let openPanel = new Audio('music/394155__vacuumfan7072__uiclick1.wav');
+  openPanel.play();
   startTimer();
   nextRound();
 }
 
 
-startBtn.addEventListener("click", startGame)
-wirePanel.addEventListener('click', event => {
-  const { box } = event.target.dataset;
+// let ambiance = new Audio('music/326984__zetauri__zetauri-darkambienceloop-1496110c.wav');
 
-  if (box) playerClick(box);
-})
+// function playMusic() {
+  // ambiance.volume = 0.5;
+  // ambiance.loop = true;
+  // ambiance.play();
+  
+  // };
+  
+  startBtn.addEventListener("click", startGame)
+  wirePanel.addEventListener('click', event => {
+    const { box } = event.target.dataset;
+    if (box) playerClick(box);
+  })
 
 resetBtn.addEventListener('click', restartPrompts)
+
+
+
 
 
