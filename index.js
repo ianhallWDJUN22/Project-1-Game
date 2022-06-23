@@ -10,7 +10,8 @@ let boom2 = document.querySelector('.boom2');
 let boom3 = document.querySelector('.boom3');
 let errorInfo = document.querySelector('.error-info');
 let wipe = document.querySelector('.full-game');
-let allBoxes = document.querySelector('.box')
+let allBoxes = document.querySelector('.box');
+let winNote = document.querySelector('.winNotes');
 const win = document.querySelector('.bombDisarmed');
 const row1 = document.querySelector('.row-1');
 const row2 = document.querySelector('.row-2');
@@ -26,9 +27,9 @@ const warningLabel = document.querySelector('.backgroundInfo');
 //   ambiance.muted = true;
 // }
 function boom() {
-  // pauseAudio();
+  ambiance.volume = 0;
   let explosion = new Audio('music/191693__deleted-user-3544904__explosion-3.wav');
-  explosion.volume = 0.10;
+  explosion.volume = 0.45;
   console.log(explosion.volume)
   explosion.play();
 
@@ -53,8 +54,12 @@ function boom() {
 };
 
 function youWin() {
+  ambiance.volume = 0;
   allBoxes.classList.remove('activated');
   prompt = [];
+  let winPing = new Audio('music/523763__matrixxx__select-granted-06.wav');
+  winPing.volume = 0.3;
+  winPing.play();
   let disarm = new Audio('music/169994__peepholecircus__power-down.mp3')
 disarm.play();
 
@@ -62,7 +67,12 @@ info.textContent = '-- BOMB DISARMED --'
 setTimeout(() => {
   wipe.classList.add('hidden');
   win.classList.remove('hidden');
-}, 5000);
+  let winMusic = new Audio('music/361139__skibkamusic__shine-1-loop.wav');
+  winMusic.loop = true;
+  winMusic.volume = 0.3
+  winMusic.play();
+  winNote.innerHTML = `Well done! You disarmed the bomb and earned yourself a final score of ${finalScore}!`<br>`Scores are based on the amount of time you had remaining on the timer.  To see if you can beat your current time refresh this page.`;
+}, 4000);
 
 }
 function activateBox(color) {
@@ -70,15 +80,17 @@ function activateBox(color) {
   box.classList.add('activated');
   if (color == 'red') {
     let redPing = new Audio('music/320181__dland__hint.wav');
-    redPing.volume = 0.2
+    redPing.volume = 0.25
     redPing.play();
   }
   if (color == 'yellow') {
     let yellowPing = new Audio('music/520579__divoljud__clickglass.wav');
+    yellowPing.volume = 0.4
     yellowPing.play();
   }
   if (color == 'green'){
     let greenPing = new Audio('music/540902__solernix__simple-beep-sound.mp3');
+    greenPing.volume = 0.3
     greenPing.play();
   }
   if (color == 'blue'){
@@ -113,8 +125,7 @@ function resetGame() {
     boom();
   return;
 }
-  let error = new Audio('music/343015__zenithinfinitivestudios__ui-button1.wav');
-  error.volume = 0.05
+  let error = new Audio('music/419023__jacco18__acess-denied-buzz.mp3');
   error.play();
 }
 
@@ -154,15 +165,17 @@ function playerClick(box) {
   }
   let redPing = new Audio('music/320181__dland__hint.wav');
   if (box == 'red') {
-    redPing.volume = 0.2
+    redPing.volume = 0.25
     redPing.play();
   }
   let yellowPing = new Audio('music/520579__divoljud__clickglass.wav');
   if (box == 'yellow') {
+    yellowPing.volume = 0.4
     yellowPing.play();
   }
   let greenPing = new Audio('music/540902__solernix__simple-beep-sound.mp3');
   if (box == 'green'){
+    greenPing.volume = 0.3
     greenPing.play();
   }
   let bluePing = new Audio('music/253168__suntemple__sfx-ui-button-click.wav');
@@ -173,8 +186,10 @@ function playerClick(box) {
     playerPrompt = [];
     step += 1;
     
-    
-    if (step == 3){
+    if (step > highestStreak){
+      highestStreak = step
+    }
+    if (step == 1){
       youWin();
       return;
     } 
@@ -208,8 +223,8 @@ function startTimer(){
 }
 
 function restartPrompts() {
-  let resetPing = new Audio('music/523763__matrixxx__select-granted-06.wav');
-  resetPing.play();
+  resetPing = new Audio('music/394155__vacuumfan7072__uiclick1.wav');
+  resetPing.volume = 0.50
   resetBtn.classList.add('unclickable')
   row1.classList.remove('unclickable')
   row2.classList.remove('unclickable')
@@ -230,17 +245,18 @@ function startGame() {
   openPanel.play();
   startTimer();
   nextRound();
+  playMusic();
 }
 
 
-// let ambiance = new Audio('music/326984__zetauri__zetauri-darkambienceloop-1496110c.wav');
+let ambiance = new Audio('music/326984__zetauri__zetauri-darkambienceloop-1496110c.wav');
 
-// function playMusic() {
-  // ambiance.volume = 0.5;
-  // ambiance.loop = true;
-  // ambiance.play();
+function playMusic() {
+  ambiance.volume = 0.15;
+  ambiance.loop = true;
+  ambiance.play();
   
-  // };
+  };
   
   startBtn.addEventListener("click", startGame)
   wirePanel.addEventListener('click', event => {
