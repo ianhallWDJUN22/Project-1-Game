@@ -1,6 +1,6 @@
 let prompt = [];
 let playerPrompt = [];
-let step = 0;
+let step = 1;
 let resets = 2
 let highestStreak = 0;
 let startBtn = document.getElementById('btnStart');
@@ -114,7 +114,7 @@ function playRound(nextPrompt) {
 function resetGame() {
   prompt = [];
   playerPrompt = [];
-  step = 0;
+  step = 1;
   row1.classList.add('unclickable');
   row2.classList.add('unclickable');
   resetBtn.classList.remove('unclickable');
