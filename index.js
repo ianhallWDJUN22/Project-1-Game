@@ -189,7 +189,7 @@ function playerClick(box) {
     if (step > highestStreak){
       highestStreak = step
     }
-    if (step == 15){
+    if (step == 16){
       youWin();
       return;
     } 
